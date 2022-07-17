@@ -1,5 +1,6 @@
 package com.whl.client.client;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.whl.client.handle.NettyClientChannelInitializer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -52,7 +53,7 @@ public class NioNettyClient {
      * @param msg
      */
     public void sendMsg(String msg) {
-        if(!socketChannel.isActive()){
+        if(ObjectUtil.isNull(socketChannel) || !socketChannel.isActive()){
             // 如果失去连接，重新创建新的连接
             log.info("****************服务失去连接，开始创建新的连接****************");
             start();
