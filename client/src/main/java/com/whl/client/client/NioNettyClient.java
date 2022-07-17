@@ -1,5 +1,6 @@
 package com.whl.client.client;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.whl.client.handle.NettyClientChannelInitializer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -14,6 +15,7 @@ import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -52,7 +54,7 @@ public class NioNettyClient {
      * @param msg
      */
     public void sendMsg(String msg) {
-        if(!socketChannel.isActive()){
+        if(ObjectUtil.isNull(socketChannel) || !socketChannel.isActive()){
             // 如果失去连接，重新创建新的连接
             log.info("****************服务失去连接，开始创建新的连接****************");
             start();
@@ -62,6 +64,7 @@ public class NioNettyClient {
     }
 
     @PostConstruct
+    @Async
     public void start() {
         work = new NioEventLoopGroup();
         try {
