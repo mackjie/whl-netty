@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author hl.Wu
  *
- * @date 2021/11/4
+ * @date 2022/07/17
  * @description: netty server info
  **/
 @Slf4j

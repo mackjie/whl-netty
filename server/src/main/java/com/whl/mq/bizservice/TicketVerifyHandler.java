@@ -7,7 +7,7 @@ import io.netty.util.ReferenceCountUtil;
 /**
  * @author hl.Wu
  *
- * @date 2021/11/4
+ * @date 2022/07/17
  * @description: 用户ticket校验
  **/
 public class TicketVerifyHandler extends ChannelInboundHandlerAdapter {

@@ -41,6 +41,7 @@ public class ClientUserHandler extends SimpleChannelInboundHandler<String> {
         log.info("receive message info is {}", msg);
         String token = (String)JSONUtil.getByPath(JSONUtil.parse(msg), MessageBO.Fields.token);
         // 校验token是否失效
+        // TODO 根据业务场景添加身份校验
         Preconditions.checkArgument(userMap.containsKey(token),"抱歉，Token已失效");
         if(!channelMap.containsKey(userMap.get(token))){
             channelMap.put(userMap.get(token), ctx.channel());

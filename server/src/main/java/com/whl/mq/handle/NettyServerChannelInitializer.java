@@ -22,9 +22,13 @@ public class NettyServerChannelInitializer extends ChannelInitializer {
     private ClientUserHandler clientUserHandler;
     @Override
     protected void initChannel(Channel channel) {
+        // 设置编码类型
         channel.pipeline().addLast("decoder",new StringDecoder(CharsetUtil.UTF_8));
+        // 设置解码类型
         channel.pipeline().addLast("encoder",new StringEncoder(CharsetUtil.UTF_8));
+        // 用户校验处理逻辑
         channel.pipeline().addLast("ClientTokenHandler", clientUserHandler);
+        // 通过校验最终消息业务处理
         channel.pipeline().addLast("ClientMessageHandler",clientMessageHandler);
     }
 }
