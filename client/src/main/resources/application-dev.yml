@@ -1,0 +1,13 @@
+server:
+  port: 8082
+netty:
+  server:
+    host: localhost
+    port: 8099
+rocketmq:
+  name-server: localhost:9876
+  consumer:
+    group: verification_ems
+    pull-batch-size: 200
+    access-key: ems
+    secret-key: ems

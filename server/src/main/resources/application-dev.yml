@@ -1,0 +1,14 @@
+server:
+  port: 8081
+nio:
+  netty:
+    server:
+      port: 8099
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    group: verification_ems
+    send-message-timeout: 30000
+    retry-times-when-send-async-failed: 3
+    access-key: ems
+    secret-key: ems
