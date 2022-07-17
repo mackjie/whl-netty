@@ -12,6 +12,9 @@ http://localhost:8082/doc.html
 Server地址:
 http://localhost:8081/doc.html
 
+剔除MQ依赖
+分支： develop-nomq
+
 
 
 
