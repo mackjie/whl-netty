@@ -1,4 +1,4 @@
-前置条件：
+-- 前置条件：
 1、java环境
 2、maven环境
 3、RocketMQ安装
