@@ -48,7 +48,7 @@ public class NioNettyClient {
     private NettyClientChannelInitializer nettyClientChannelInitializer;
 
     /**
-     * 发送消息
+     * 发送消息，参数msg
      *
      * @param msg
      */
